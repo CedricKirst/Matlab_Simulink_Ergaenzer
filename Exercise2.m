@@ -18,6 +18,8 @@ end
 subplot(2,1,1);
 hold on;
 title('dy/dt = t² - y²');
+xlabel('t');
+ylabel('y');
 plot(t, y);
 grid on;
 hold off;
@@ -33,6 +35,8 @@ end
 subplot(2,1,2);
 hold on;
 title('dy/dt = t - |y|');
+xlabel('t');
+ylabel('y');
 plot(t, y);
 grid on;
 hold off;
