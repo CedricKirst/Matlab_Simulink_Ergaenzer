@@ -1,3 +1,4 @@
+%Chapter 3
 %Exercise 2
 %Euler's approximation for a differential equation
 

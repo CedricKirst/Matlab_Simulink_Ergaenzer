@@ -2,28 +2,30 @@
 
 clc; clear all; close all;
 
-count = 0;
+count = 1;
 lower = 0;
-upper = 100;
+upper = 999999;
+primes = -2*ones(upper,1);
+primes(1) = 2;
+primiter = 1;
 
 tic;
-if(lower <= 3)
-    count =3;
-    lower = 4;
-end
-
-for i =  lower:upper
+for i =  2:upper
     
     prime = true;
     
-    for j = 2 : round(sqrt(i))
-        if(~mod(i, j))
+    for j = 1 : length(primes)
+        if(primes(j) == -2)
+            break;
+        elseif(~mod(i, primes(j)))
             prime = false;
+            break;
         end
     end
     
     if(prime)
         count = count + 1;
+        primes(j) = i;
     end
     
 end

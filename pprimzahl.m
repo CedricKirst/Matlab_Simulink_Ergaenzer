@@ -4,7 +4,7 @@ clc; clear all; close all;
 
 count = 0;
 lower = 0;
-upper = 100;
+upper = 10000000;
 
 tic;
 if(lower <= 3)
@@ -19,6 +19,7 @@ parfor i =  lower:upper
     for j = 2 : round(sqrt(i))
         if(~mod(i, j))
             prime = false;
+            break;
         end
     end
     
