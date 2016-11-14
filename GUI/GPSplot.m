@@ -131,10 +131,10 @@ try
     [X, Y, Z, Distance, Time] = funGPSPlot(txtdat);
     axes(handles.plt3DPos)
     plot3(X,Y,Z);
-    grid on;
+    grid minor;
     axes(handles.plt2DDistance);
     plot(Time, Distance);
-    grid on;
+    grid minor;
 catch
     h = msgbox('Chosen Data must have GPS standard!');
 end

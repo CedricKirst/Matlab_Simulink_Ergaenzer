@@ -19,12 +19,12 @@ for i = 1:length(Time)
     r(i) = 6371000 + Altitude(i);
     
     longdeg = sLongitude{i}(1:3);
-    longmin = sLongitude{i}(4:8);
+    longmin = sLongitude{i}(4:10);
     
     nLongitude(i) =pi/180 * (str2double(longdeg)+str2double(longmin)/60);
     
     latdeg = sLatitude{i}(1:2);
-    latmin = sLatitude{i}(3:7);
+    latmin = sLatitude{i}(3:9);
     
     nLatitude(i) =pi/180 * (str2double(latdeg)+str2double(latmin)/60);
     if (i<=length(Distance))
@@ -55,12 +55,22 @@ plot3(X, Y, Z, '-s', 'LineWidth', 1.5, 'MarkerEdgeColor', 'k');
 xlabel('X');
 ylabel('Y');
 zlabel('Z');
-grid on;
+title('Flight Trajectory (cartesic coordinates)');
+grid minor;
 view([-30, 70]);
+
+subplot(2,2,2);
+plot3(nLatitude, nLongitude, r, '-s', 'LineWidth', 1.5, 'MarkerEdgeColor', 'k');
+xlabel('Latitude');
+ylabel('Longitude');
+zlabel('Radius');
+title('(Flight Trajectory earth coordinates)');
+grid minor;
 
 subplot(2,2,3:4);
 plot(Time, Distance, '-rs',  'LineWidth', 1.5, 'MarkerEdgeColor', 'k');
 xlabel('Time');
 ylabel('Distance');
-grid on
+title('Distance over Time');
+grid minor;
 
