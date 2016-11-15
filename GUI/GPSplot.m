@@ -131,9 +131,11 @@ try
     [X, Y, Z, Distance, Time] = funGPSPlot(txtdat);
     axes(handles.plt3DPos)
     plot3(X,Y,Z);
+    title('Flight Trajectory');
     grid minor;
     axes(handles.plt2DDistance);
     plot(Time, Distance);
+    title('Distance over Time');
     grid minor;
 catch
     h = msgbox('Chosen Data must have GPS standard!');

@@ -12,15 +12,15 @@ r = zeros(length(Time), 1);
 
 
 for i = 1:length(Time)
-    r(i) = 6371 + Altitude(i);
+    r(i) = 6371000 + Altitude(i);
     
     longdeg = sLongitude{i}(1:3);
-    longmin = sLongitude{i}(4:8);
+    longmin = sLongitude{i}(4:10);
     
     nLongitude(i) = pi/180 * (str2double(longdeg)+str2double(longmin)/60);
     
     latdeg = sLatitude{i}(1:2);
-    latmin = sLatitude{i}(3:7);
+    latmin = sLatitude{i}(3:9);
     
     nLatitude(i) =pi/180 * (str2double(latdeg)+str2double(latmin)/60);
     if (i<=length(Distance))

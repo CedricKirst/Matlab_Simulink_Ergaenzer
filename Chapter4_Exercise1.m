@@ -36,9 +36,6 @@ for i = 1:length(Time)
         else
             Distance(i) = Distance(i-1) + 2*r(i) * atan(sqrt((a+b)/(1-a+b)));
         end
-        if(i~=length(Time)-1)
-            Velocity(i) = (Distance(i+1)-Distance(i))/(Time(i+1)-Time(i));
-        end
     end
         
 end 
@@ -51,21 +48,26 @@ screen_size = get(0, 'ScreenSize');
 set(f1, 'Position', [0 0 screen_size(3) screen_size(4) ] );
 
 subplot(2, 2, 1);
+hold on;
 plot3(X, Y, Z, '-s', 'LineWidth', 1.5, 'MarkerEdgeColor', 'k');
+plot3(X(1), Y(1), Z(1), 'g.');
 xlabel('X');
 ylabel('Y');
 zlabel('Z');
 title('Flight Trajectory (cartesic coordinates)');
 grid minor;
-view([-30, 70]);
+view([-140, 50]);
 
 subplot(2,2,2);
+hold on;
 plot3(nLatitude, nLongitude, r, '-s', 'LineWidth', 1.5, 'MarkerEdgeColor', 'k');
+plot3(nLatitude(1), nLongitude(1), r(1), 'g+');
 xlabel('Latitude');
 ylabel('Longitude');
 zlabel('Radius');
 title('(Flight Trajectory earth coordinates)');
 grid minor;
+view([-30,40]);
 
 subplot(2,2,3:4);
 plot(Time, Distance, '-rs',  'LineWidth', 1.5, 'MarkerEdgeColor', 'k');
