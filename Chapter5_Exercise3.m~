@@ -1,0 +1,23 @@
+% Chapter 5
+% Exercise 3
+
+clc; close all; clear all;
+
+mu = 130;
+sigma = 15;
+
+x = 87:185;
+
+dist = makedist('Normal', mu, sigma);
+trunc = trucate
+
+pdfnorm = pdf('Normal', x, mu, sigma);
+cdfnorm = cdf('Normal', x, mu, sigma);
+
+subplot(1,2,1);
+plot(x, pdfnorm);
+grid on; grid minor;
+
+subplot(1,2,2);
+plot(x, cdfnorm);
+grid on; grid minor;
